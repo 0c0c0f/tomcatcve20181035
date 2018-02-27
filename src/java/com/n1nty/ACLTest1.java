@@ -1,6 +1,5 @@
-package com.sglab;
+package com.n1nty;
 
-import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.HttpConstraint;
 import javax.servlet.annotation.ServletSecurity;
@@ -8,14 +7,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
-import static javax.servlet.annotation.ServletSecurity.TransportGuarantee.CONFIDENTIAL;
-
-
-@WebServlet (name = "Soap", urlPatterns = { "/soap" })
-@ServletSecurity(@HttpConstraint(transportGuarantee = ServletSecurity.TransportGuarantee.CONFIDENTIAL))
-public class Soap extends HttpServlet
-{
+@WebServlet(name = "ACLTest1", urlPatterns = {"/servlet1/*"})
+@ServletSecurity(@HttpConstraint(ServletSecurity.EmptyRoleSemantic.DENY))
+public class ACLTest1 extends HttpServlet {
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response)
             throws ServletException, IOException
@@ -26,6 +22,6 @@ public class Soap extends HttpServlet
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
-        response.getWriter().println("hello, soap!");
+        response.getWriter().println("hello, ACLTest1!");
     }
 }
