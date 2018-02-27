@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="tomcatcve20181035:war exploded">
+    <output-path>$PROJECT_DIR$/target/tomcat-cve-2018-1035</output-path>
+    <root id="root" />
+  </artifact>
+</component>
